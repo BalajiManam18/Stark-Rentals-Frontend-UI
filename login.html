@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var attempt = 3;
+        
+        function validate() {
+            var name = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            if(name == "demo" && pass == "demo123") {
+                window.location.href = "listings.html";
+                return false;
+            } else {
+                attempt--; 
+                alert("Incorrect Password! You have " + attempt + " attempts left");
+                if(attempt == 0) {
+                    document.getElementById("username").disabled = true;
+                    document.getElementById("password").disabled = true;
+                    document.getElementById("button").disabled = true;
+                }
+                return false;
+            }
+                 
+        }
+        
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Stark Rentals</h1>
+        <nav>
+            <ul>
+                <li id="home"><a href="home.html">Home</a></li>
+                <li id="home"><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <form action="success.html" method="POST" id="log">
+        <h2>Login</h2>
+        <ul>
+            <li id="login">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+            </li>
+            <li id="login">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </li>
+            <li id="login">
+                <button type="button" value="Login" id="button" onclick="validate()">Login</button>
+                <p> 
+
+                </p>
+        <p>Dont have an account ? <a class="z" href="signup.html">Register here</a> </p>
+                
+            </li>
+                    <p style="text-align:center;">
+            Demo Credentials:
+            <strong>demo / demo123</strong>
+        </p>
+        </ul>
+    </form>
+</body>
+</html>
